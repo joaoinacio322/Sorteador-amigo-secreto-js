@@ -2,27 +2,30 @@ let amigos = [];
 
 function adicionar() {
     let amigo = document.getElementById('nome-amigo');
-    if (amigo.value == ''){
+    let nome = amigo.value.trim();
+
+    if (nome == '') {
         alert('Digite um nome válido!');
         return;
     }
 
-    if (amigos.includes(amigo.value) ){
+    if (amigos.includes(nome.toLowerCase())) {
         alert('Esse amigo já está na lista!');
-        return
+        return;
     }
-    
+
     let lista = document.getElementById('lista-amigos');
-    amigos.push(amigo.value);
+    amigos.push(nome.toLowerCase()); // Salva tudo em minúsculo
 
     if (lista.textContent == '') {
-        lista.textContent = amigo.value;
+        lista.textContent = nome;
     } else {
-        lista.textContent = lista.textContent + ', ' + amigo.value;
+        lista.textContent += ', ' + nome;
     }
-    amigo.value = '';
 
+    amigo.value = '';
 }
+
 
 function sortear(){
     if( amigos.length < 4){
