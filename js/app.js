@@ -6,6 +6,12 @@ function adicionar() {
         alert('Digite um nome válido!');
         return;
     }
+
+    if (amigos.includes(amigo.value) ){
+        alert('Esse amigo já está na lista!');
+        return
+    }
+    
     let lista = document.getElementById('lista-amigos');
     amigos.push(amigo.value);
 
